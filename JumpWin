@@ -1,0 +1,25 @@
+REM MAKE A PROFILE! 
+REM FIRST: New-Item -Path $PROFILE -ItemType File -Force
+REM AFTER: notepad $PROFILE
+REM COPY THE CODE
+REM . $PROFILE (WITH DOT)
+REM IF GENERATE ERR PUT IT ON POWER SHELL: Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+REM CHOOSE A NAME PUT IN "" AND CHOOSE YOUR PATH
+
+$JumpPaths = @{
+    "work"     = "C:\Users\Leo\Documents\Projects\work"
+    "home"     = "C:\Users\Leo"
+    "projects" = "D:\Projects"
+}
+
+function jump {
+    param([string]$destino)
+
+    if ($JumpPaths.ContainsKey($destino)) {
+        Set-Location $JumpPaths[$destino]
+    } else {
+        Write-Host "Destino não encontrado: $destino"
+    }
+}
+
