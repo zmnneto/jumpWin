@@ -1,12 +1,3 @@
-REM MAKE A PROFILE! 
-REM FIRST: New-Item -Path $PROFILE -ItemType File -Force
-REM AFTER: notepad $PROFILE
-REM COPY THE CODE
-REM . $PROFILE (WITH DOT)
-REM IF GENERATE ERR PUT IT ON POWER SHELL: Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-
-REM CHOOSE A NAME PUT IN "" AND CHOOSE YOUR PATH
-
 function jump {
     param(
         [string]$destino
