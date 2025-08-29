@@ -7,19 +7,15 @@ REM IF GENERATE ERR PUT IT ON POWER SHELL: Set-ExecutionPolicy RemoteSigned -Sco
 
 REM CHOOSE A NAME PUT IN "" AND CHOOSE YOUR PATH
 
-$JumpPaths = @{
-    "work"     = "C:\Users\Leo\Documents\Projects\work"
-    "home"     = "C:\Users\Leo"
-    "projects" = "D:\Projects"
-}
-
 function jump {
-    param([string]$destino)
+    param(
+        [string]$destino
+    )
 
-    if ($JumpPaths.ContainsKey($destino)) {
-        Set-Location $JumpPaths[$destino]
-    } else {
-        Write-Host "Destino não encontrado: $destino"
+    switch ($destino) {
+        "work"      {Set-Location "C:\Users\user\Documents\github\insigthvendas" }
+	    "downloads" {Set-Location "C:\Users\user\Downloads"}
+	    "doc"       {Set-Location "C:\Users\user\Documents"}
+        default     { Write-Host "Destino não encontrado: $destino" }
     }
 }
-
